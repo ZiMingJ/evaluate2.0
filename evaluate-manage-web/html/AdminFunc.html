@@ -1,0 +1,507 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>管理员</title>
+    <link rel="stylesheet" href="../css/styleAdFunc.css" />
+    <!-- Element Ui Css -->
+    <link rel="stylesheet" href="../css/element/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <div class="badge">学生评教系统</div>
+        </div>
+        <div class="header">
+            <h1>学生教学反馈系统——信息管理</h1>
+        </div>
+        <div class="row">
+            <div class="side">
+                <a href="javaScript:;" v-on:click="plan=0;requestForUser(1);search=''">学生信息管理</a><br />
+                <a href="javaScript:;" v-on:click="plan=1;requestForUser(1);search=''">教师信息管理</a><br />
+                <a href="javaScript:;" v-on:click="plan=2;requestStudyList(1);search=''">课程信息管理</a>
+            </div>
+            <div class="main">
+
+                <!-- 学生 -->
+                <div v-show="plan==0">
+                    <el-input style="width: 40%" v-model="search" placeholder="搜索学生"></el-input>
+                    <el-button v-on:click="onSearch" type="success" icon="el-icon-search" circle></el-button>
+
+                    <!-- 表格 -->
+                    <el-table :data="studentList" border style="width: 99%;margin-top: 15px;">
+                        <el-table-column prop="noNumber" label="学号">
+                        </el-table-column>
+                        <el-table-column prop="username" label="姓名">
+                        </el-table-column>
+                        <el-table-column prop="phone" label="联系方式">
+                        </el-table-column>
+                        <el-table-column prop="dept" label="系别">
+                        </el-table-column>
+                        <el-table-column prop="createTime" label="创建时间">
+                        </el-table-column>
+                        <el-table-column prop="bindState" label="是否绑定课程">
+                            <template slot-scope="scope">
+                                <el-tag type="success" effect="dark" v-if="scope.row.bindState">
+                                    已绑定({{scope.row.bindCount}}门)
+                                </el-tag>
+                                <el-tag type="error" effect="dark" v-else>
+                                    未绑定
+                                </el-tag>
+                            </template>
+                        </el-table-column>
+                        <el-table-column label="操作" width="260">
+                            <template slot-scope="scope">
+                                <el-button type="success" plain size="mini" @click="bindStudy(scope.row)">绑定课程
+                                </el-button>
+                                <el-button plain size="mini" @click="updateUserShow(scope.row.noNumber)">编辑
+                                </el-button>
+                                <el-button type="danger" plain size="mini" @click="deleteUser(scope.row.noNumber)">删除
+                                </el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                    <br>
+                    <el-pagination small @current-change="requestForUser" :current-page.sync="studentPage.current"
+                        :page-size="studentPage.size" layout="prev, pager, next" :total="studentPage.total">
+                    </el-pagination>
+                </div>
+
+                <!-- 教师 -->
+                <div v-show="plan==1">
+                    <el-input style="width: 40%" v-model="search" placeholder="搜索教师"></el-input>
+                    <el-button v-on:click="onSearch" type="success" icon="el-icon-search" circle></el-button>
+
+                    <!-- 表格 -->
+                    <el-table :data="teacherList" border style="width: 99%;margin-top: 15px;">
+                        <el-table-column prop="noNumber" label="工号">
+                        </el-table-column>
+                        <el-table-column prop="username" label="姓名">
+                        </el-table-column>
+                        <el-table-column prop="phone" label="联系方式">
+                        </el-table-column>
+                        <el-table-column prop="dept" label="系别">
+                        </el-table-column>
+                        <el-table-column prop="createTime" label="创建时间">
+                        </el-table-column>
+                        <el-table-column prop="bindState" label="是否绑定课程">
+                            <template slot-scope="scope">
+                                <el-tag type="success" effect="dark" v-if="scope.row.bindState">
+                                    已绑定({{scope.row.bindCount}}门)
+                                </el-tag>
+                                <el-tag type="error" effect="dark" v-else>
+                                    未绑定
+                                </el-tag>
+                            </template>
+                        </el-table-column>
+                        <el-table-column label="操作" width="260">
+                            <template slot-scope="scope" >
+                                <el-button type="success" plain size="mini" @click="bindStudy(scope.row)">绑定课程
+                                </el-button>
+                                <el-button plain size="mini" @click="updateUserShow(scope.row.noNumber)">编辑
+                                </el-button>
+                                <el-button type="danger" plain size="mini" @click="deleteUser(scope.row.noNumber)">删除
+                                </el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                    <br>
+                    <el-pagination small @current-change="requestForUser" :current-page.sync="teacherPage.current"
+                        :page-size="teacherPage.size" layout="prev, pager, next" :total="teacherPage.total">
+                    </el-pagination>
+
+                </div>
+
+                <!-- 课程 -->
+                <div v-show="plan==2">
+                    <el-input style="width: 40%" v-model="search" placeholder="搜索课程"></el-input>
+                    <el-button v-on:click="requestStudyList(1)" type="success" icon="el-icon-search" circle></el-button>
+                    <el-button v-on:click="showAddStudy" type="primary">添加课程</el-button>
+
+                    <!-- 表格 -->
+                    <el-table ref="studyList" :data="studyList" border style="width: 99%;margin-top: 15px;">
+                        <el-table-column prop="courseNo" label="课程编号">
+                        </el-table-column>
+                        <el-table-column prop="courseName" label="课程名称">
+                        </el-table-column>
+                        <el-table-column prop="createTime" label="创建时间">
+                        </el-table-column>
+                        <el-table-column label="功能">
+                            <template slot-scope="scope">
+                                <el-button size="mini" v-on:click="updateStudy(scope.row)">修改</el-button>
+                                <el-button size="mini" type="danger" v-on:click="deleteStudy(scope.row)">删除
+                                </el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                    <br>
+                    <el-pagination small @current-change="requestStudyList" :current-page.sync="studyPage.current"
+                        :page-size="studyPage.size" layout="prev, pager, next" :total="studyPage.total">
+                    </el-pagination>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="footer"><a href="javaScript:;" onclick="logOut()">退出登录</a></div>
+
+
+        <!-- 添加课程的对话框 -->
+        <el-dialog title="添加\编辑 课程" :visible.sync="showStudyDialog">
+            <el-form :model="fromStudy">
+                <el-form-item label="课程名称">
+                    <el-input v-model="fromStudy.name" autocomplete="off"></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="closeStudyDialog">取 消</el-button>
+                <el-button type="primary" @click="onAddStudySubmit">确 定</el-button>
+            </div>
+        </el-dialog>
+
+
+        <!-- 绑定课程的对话框 -->
+        <el-dialog title="绑定课程" :visible.sync="showBindDialog">
+            <el-table ref="selectTableRef" :data="bindStudyList" style="width: 99%"
+                @selection-change="handlerSelectChange">
+                <el-table-column type="selection" width="55">
+                </el-table-column>
+                <el-table-column label="课程名称" prop="courseName">
+                </el-table-column>
+                <el-table-column v-if="plan==0" label="授课老师" prop="username">
+                </el-table-column>
+            </el-table>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="showBindDialog = false">取 消</el-button>
+                <el-button type="primary" @click="onAddBindEvent">确 定</el-button>
+            </div>
+        </el-dialog>
+
+
+
+        <!-- 绑定课程的对话框 -->
+        <el-dialog title="编辑用户" :visible.sync="editUserDialog">
+
+            <el-form label-position="left" label-width="100px" :rules="rules" ref="form" :model="editUserData" label-width="80px">
+                <el-form-item label="学号\工号" prop="noNumber">
+                    <el-input disabled v-model="editUserData.noNumber"></el-input>
+                </el-form-item>
+                <el-form-item label="用户名称" prop="username">
+                    <el-input v-model="editUserData.username"></el-input>
+                </el-form-item>
+                <el-form-item label="联系方式" prop="phone">
+                    <el-input v-model="editUserData.phone"></el-input>
+                </el-form-item>
+                <el-form-item label="系别" prop="dept">
+                    <el-input v-model="editUserData.dept"></el-input>
+                </el-form-item>
+                <el-form-item label="登录密码" prop="password">
+                    <el-input v-model="editUserData.password"></el-input>
+                </el-form-item>
+            </el-form>
+
+
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="editUserDialog = false">取 消</el-button>
+                <el-button type="primary" @click="confirmUpdateUser">确 定</el-button>
+            </div>
+        </el-dialog>
+
+    </div>
+
+
+
+    <!-- 引入基本需要的JS库 -->
+    <!-- Vue -->
+    <script src="../js/vue.js"></script>
+    <!-- Element UI JS -->
+    <script src="../js/ele.js"></script>
+    <!-- Axios网络请求 -->
+    <script src="../js/axios.min.js"></script>
+    <!-- Jquery -->
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <!-- 工具方法 -->
+    <script src="../js/util.js"></script>
+    <!-- Http请求封装方法 -->
+    <script src="../js/httpRequest.js"></script>
+
+
+    <!-- 脚本代码区域 -->
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                plan: 0,
+                search: "",
+                studentList: [], // 学生表格
+                teacherList: [], // 老师表格
+                studyList: [], // 课程表格
+                studentPage: {
+                    current: 1,
+                    size: 0,
+                    total: 0
+                },
+                teacherPage: {
+                    current: 1,
+                    size: 0,
+                    total: 0
+                },
+                studyPage: {
+                    current: 1,
+                    size: 0,
+                    total: 0
+                },
+                showStudyDialog: false, //添加课程弹出框
+                fromStudy: {  //添加课程的From表单
+                    name: "",
+                    id: null
+                },
+                showBindDialog: false, //绑定课程
+                bindStudyList: [], //绑定课程列表
+                bindStudyListSelection: [], //绑定课程列表
+                currentBindUid: null, //当前要绑定的用户Id
+                editUserDialog: false, //编辑用户对话框
+                editUserData: {},//编辑用户数据
+                rules: {  //表单验证
+                    noNumber: [{ required: true, message: '请输入学号Or工号', trigger: 'blur' }],
+                    username: [{ required: true, message: '请输入用户名称', trigger: 'blur' }],
+                    phone: [{ required: true, message: '请输入联系方式', trigger: 'blur' }],
+                    dept: [{ required: true, message: '请输入系别', trigger: 'blur' }],
+                    password: [{ required: true, message: '请输入登录密码', trigger: 'blur' },
+                    { min: 6, max: 20, message: '长度在 6 到 20 个字符', trigger: 'blur' }
+                    ]
+                }
+            },
+            created() {
+                this.$message.success("登录成功");
+                this.requestForUser(1);
+            },
+            methods: {
+                onSearch() {
+                    if (this.plan != 3) {
+                        this.requestForUser(1);
+                    }
+                },
+                /**
+                 * 请求老师或者学生的表格数据接口方法
+                 */
+                requestForUser(current) {
+                    http.getRequest("admin/getUserList", {
+                        search: this.search,
+                        type: this.plan,
+                        size: 5,
+                        current: current
+                    }, success => {
+                        if (this.plan == 0) {
+                            this.studentPage.total = success.total;
+                            this.studentPage.size = success.size;
+                            this.studentPage.current = success.current;
+                            this.studentList = success.records;
+                        } else if (this.plan == 1) {
+                            this.teacherPage.total = success.total;
+                            this.teacherPage.current = success.current;
+                            this.teacherPage.size = success.size;
+                            this.teacherList = success.records;
+                        }
+                    })
+                },
+                /**
+                 * 绑定课程
+                 */
+                bindStudy(item) {
+                    this.currentBindUid = item.noNumber;
+                    this.showBindDialog = true;
+                    this.bindStudyListSelection = [];
+                    http.getRequest("admin/getBindStudyList", {
+                        uid: item.noNumber
+                    }, success => {
+                        this.bindStudyList = success;
+                        //设置绑定关系
+
+                        this.bindStudyList.forEach(row => {
+                            if (row.activate) {
+                                console.log(row);
+                                this.bindStudyListSelection.push(row);
+                            }
+                        });
+                        this.toggleSelection(this.bindStudyListSelection)
+                    })
+                },
+                /**
+                 * 添加课程 弹出框控制
+                */
+                showAddStudy() {
+                    this.fromStudy.name = "";
+                    this.showStudyDialog = true;
+                },
+                /**
+                 * 添加课程请求接口
+                */
+                onAddStudySubmit() {
+                    if (isEmpty(this.fromStudy.name)) {
+                        this.$message.error("请书写完整");
+                        return;
+                    }
+                    if (this.fromStudy.id == null) {
+                        http.postRequest("admin/addCourse", {
+                            name: this.fromStudy.name
+                        }, success => {
+                            this.closeStudyDialog();
+                            this.$message.success("添加课程成功");
+                            this.requestStudyList(1)
+                        });
+                    } else {
+                        //修改的操作
+                        http.getRequest("admin/updateStudy", {
+                            courseNo: this.fromStudy.id,
+                            courseName: this.fromStudy.name
+                        }, success => {
+                            this.closeStudyDialog();
+                            this.$message.success("修改成功");
+                            this.requestStudyList(1)
+                        })
+                    }
+
+                },
+                /**
+                 * 请求获取列表的接口
+                */
+                requestStudyList(val) {
+                    http.getRequest("admin/getStudyList", {
+                        search: this.search,
+                        size: 5,
+                        current: val
+                    }, success => {
+                        this.studyPage.total = success.total;
+                        this.studyPage.size = success.size;
+                        this.studyPage.current = success.current;
+                        this.studyList = success.records;
+                    })
+                },
+                /**
+                 * 选择课程改变事件
+                */
+                handlerSelectChange(val) {
+                    this.bindStudyListSelection = val;
+                    console.log(val);
+                },
+                toggleSelection(rows) {
+                    this.$nextTick(() => {
+                        for (let i = 0; i < rows.length; i++) {
+                            this.$refs.selectTableRef.toggleRowSelection(rows[i], true);
+                        }
+                    })
+                },
+                /**
+                 * 绑定课程
+                */
+                onAddBindEvent() {
+                    if (this.bindStudyListSelection.length == 0) {
+                        this.$message.error("请至少选择一项");
+                        return;
+                    }
+                    let cIds = [];
+                    this.bindStudyListSelection.forEach(item => {
+                        if (this.plan == 0) {
+                            cIds.push(item.sId);
+                        } else {
+                            cIds.push(item.courseNo);
+                        }
+                    });
+                    http.postRequestForBody("admin/bindStudy", {
+                        uid: this.currentBindUid,
+                        bindIds: cIds
+                    }, success => {
+                        this.showBindDialog = false;
+                        this.currentBindUid = null;
+                        this.$message.success("设置绑定成功");
+                        //刷新表格
+                        this.requestForUser(1);
+                    })
+                },
+                /**
+                 * 关闭添加课程的对话框
+                 */
+                closeStudyDialog() {
+                    this.showStudyDialog = false;
+                    this.fromStudy.name = null;
+                    this.fromStudy.id = null;
+                },
+                /**
+                 * 更新课程信息
+                 */
+                updateStudy(item) {
+                    this.showStudyDialog = true;
+                    this.fromStudy.name = item.courseName;
+                    this.fromStudy.id = item.courseNo;
+                },
+                /**
+                 * 删除课程信息
+                 */
+                deleteStudy(item) {
+                    this.$confirm('此操作将永久删除该课程, 是否继续?', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        http.getRequest("admin/deleteStudy", {
+                            cId: item.courseNo
+                        }, success => {
+                            this.$message.success("删除成功");
+                            this.requestStudyList(1);
+                        })
+                    })
+                },
+                /**
+                 * 编辑用户信息 打开对话框
+                 */
+                updateUserShow(uid) {
+                    http.getRequest("admin/getUserInfo", {
+                        uid: uid
+                    }, success => {
+                        this.editUserData = success;
+                        this.editUserDialog = true;
+                    })
+                },
+                /**
+                * 编辑用户信息 提交
+                */
+                confirmUpdateUser() {
+                    this.$refs.form.validate((valid) => {
+                        if (valid) {
+                            http.postRequestForBody("admin/updateUser", this.editUserData,
+                                success => {
+                                    this.$message.success("更新成功");
+                                    this.editUserDialog = false;
+                                    this.requestForUser(1);
+                                })
+                        } else {
+                            return false;
+                        }
+                    });
+                },
+                /**
+               * 删除用户
+               */
+                deleteUser(uid) {
+                    this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        http.postRequest("admin/deleteUser", {
+                            uid: uid
+                        }, success => {
+                            this.$message.success("删除成功");
+                            this.requestForUser(1);
+                        })
+                    })
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.1.6.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/boot/spring-boot-autoconfigure/2.1.6.RELEASE/spring-boot-autoconfigure-2.1.6.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-aop:5.1.8.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/spring-aop/5.1.8.RELEASE/spring-aop-5.1.8.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-beans:5.1.8.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/spring-beans/5.1.8.RELEASE/spring-beans-5.1.8.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.apache.logging.log4j:log4j-api:2.11.2">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/apache/logging/log4j/log4j-api/2.11.2/log4j-api-2.11.2.jar" />
+  </library>
+  <library name="Maven: javax.annotation:javax.annotation-api:1.3.2">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-context:5.1.8.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/spring-context/5.1.8.RELEASE/spring-context-5.1.8.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.apache.logging.log4j:log4j-to-slf4j:2.11.2">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/apache/logging/log4j/log4j-to-slf4j/2.11.2/log4j-to-slf4j-2.11.2.jar" />
+  </library>
+  <library name="Maven: ch.qos.logback:logback-core:1.2.3">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar" />
+  </library>
+  <library name="Maven: org.springframework.boot:spring-boot-starter:2.1.6.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/boot/spring-boot-starter/2.1.6.RELEASE/spring-boot-starter-2.1.6.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-expression:5.1.8.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/spring-expression/5.1.8.RELEASE/spring-expression-5.1.8.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.springframework.boot:spring-boot-starter-logging:2.1.6.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/boot/spring-boot-starter-logging/2.1.6.RELEASE/spring-boot-starter-logging-2.1.6.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.springframework.boot:spring-boot:2.1.6.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/boot/spring-boot/2.1.6.RELEASE/spring-boot-2.1.6.RELEASE.jar" />
+  </library>
+  <library name="Maven: ch.qos.logback:logback-classic:1.2.3">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar" />
+  </library>
+  <library name="Maven: org.slf4j:jul-to-slf4j:1.7.26">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/slf4j/jul-to-slf4j/1.7.26/jul-to-slf4j-1.7.26.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-jcl:5.1.8.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/spring-jcl/5.1.8.RELEASE/spring-jcl-5.1.8.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-core:5.1.8.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/spring-core/5.1.8.RELEASE/spring-core-5.1.8.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.yaml:snakeyaml:1.23">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/yaml/snakeyaml/1.23/snakeyaml-1.23.jar" />
+  </library>
+  <library name="Maven: org.slf4j:slf4j-api:1.7.26">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar" />
+  </library>
+  <library name="Maven: org.springframework.boot:spring-boot-configuration-processor:2.1.6.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/boot/spring-boot-configuration-processor/2.1.6.RELEASE/spring-boot-configuration-processor-2.1.6.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-jdbc:5.1.8.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/spring-jdbc/5.1.8.RELEASE/spring-jdbc-5.1.8.RELEASE.jar" />
+  </library>
+  <library name="Maven: com.google.errorprone:error_prone_annotations:2.1.3">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar" />
+  </library>
+  <library name="Maven: com.google.code.findbugs:jsr305:3.0.2">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar" />
+  </library>
+  <library name="Maven: com.zaxxer:HikariCP:3.2.0">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/zaxxer/HikariCP/3.2.0/HikariCP-3.2.0.jar" />
+  </library>
+  <library name="Maven: joda-time:joda-time:2.9.9">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/joda-time/joda-time/2.9.9/joda-time-2.9.9.jar" />
+  </library>
+  <library name="Maven: javax.validation:validation-api:2.0.1.Final">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar" />
+  </library>
+  <library name="Maven: com.google.guava:guava:26.0-jre">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/google/guava/guava/26.0-jre/guava-26.0-jre.jar" />
+  </library>
+  <library name="Maven: org.springframework.boot:spring-boot-starter-tomcat:2.1.6.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/boot/spring-boot-starter-tomcat/2.1.6.RELEASE/spring-boot-starter-tomcat-2.1.6.RELEASE.jar" />
+  </library>
+  <library name="Maven: com.baomidou:mybatis-plus-extension:3.0.5">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/baomidou/mybatis-plus-extension/3.0.5/mybatis-plus-extension-3.0.5.jar" />
+  </library>
+  <library name="Maven: org.springframework.boot:spring-boot-starter-json:2.1.6.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/boot/spring-boot-starter-json/2.1.6.RELEASE/spring-boot-starter-json-2.1.6.RELEASE.jar" />
+  </library>
+  <library name="Maven: com.alibaba:fastjson:1.2.47">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/alibaba/fastjson/1.2.47/fastjson-1.2.47.jar" />
+  </library>
+  <library name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.9">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.9/jackson-datatype-jsr310-2.9.9.jar" />
+  </library>
+  <library name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.9">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar" />
+  </library>
+  <library name="Maven: org.apache.tomcat.embed:tomcat-embed-core:9.0.21">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/apache/tomcat/embed/tomcat-embed-core/9.0.21/tomcat-embed-core-9.0.21.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-webmvc:5.1.8.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/spring-webmvc/5.1.8.RELEASE/spring-webmvc-5.1.8.RELEASE.jar" />
+  </library>
+  <library name="Maven: com.baomidou:mybatis-plus:3.0.5">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/baomidou/mybatis-plus/3.0.5/mybatis-plus-3.0.5.jar" />
+  </library>
+  <library name="Maven: org.springframework.boot:spring-boot-starter-aop:2.1.6.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/boot/spring-boot-starter-aop/2.1.6.RELEASE/spring-boot-starter-aop-2.1.6.RELEASE.jar" />
+  </library>
+  <library name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.9">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/fasterxml/jackson/module/jackson-module-parameter-names/2.9.9/jackson-module-parameter-names-2.9.9.jar" />
+  </library>
+  <library name="Maven: org.hibernate.validator:hibernate-validator:6.0.17.Final">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/hibernate/validator/hibernate-validator/6.0.17.Final/hibernate-validator-6.0.17.Final.jar" />
+  </library>
+  <library name="Maven: org.springframework.boot:spring-boot-starter-web:2.1.6.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/boot/spring-boot-starter-web/2.1.6.RELEASE/spring-boot-starter-web-2.1.6.RELEASE.jar" />
+  </library>
+  <library name="Maven: com.github.jsqlparser:jsqlparser:1.2">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/github/jsqlparser/jsqlparser/1.2/jsqlparser-1.2.jar" />
+  </library>
+  <library name="Maven: mysql:mysql-connector-java:5.1.38">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar" />
+  </library>
+  <library name="Maven: org.springframework.boot:spring-boot-starter-jdbc:2.1.6.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/boot/spring-boot-starter-jdbc/2.1.6.RELEASE/spring-boot-starter-jdbc-2.1.6.RELEASE.jar" />
+  </library>
+  <library name="Maven: commons-codec:commons-codec:1.11">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/commons-codec/commons-codec/1.11/commons-codec-1.11.jar" />
+  </library>
+  <library name="Maven: com.baomidou:mybatis-plus-annotation:3.0.5">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/baomidou/mybatis-plus-annotation/3.0.5/mybatis-plus-annotation-3.0.5.jar" />
+  </library>
+  <library name="Maven: org.apache.tomcat.embed:tomcat-embed-el:9.0.21">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/apache/tomcat/embed/tomcat-embed-el/9.0.21/tomcat-embed-el-9.0.21.jar" />
+  </library>
+  <library name="Maven: com.google.j2objc:j2objc-annotations:1.1">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar" />
+  </library>
+  <library name="Maven: org.projectlombok:lombok:1.18.8">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/projectlombok/lombok/1.18.8/lombok-1.18.8.jar" />
+  </library>
+  <library name="Maven: com.baomidou:mybatis-plus-generator:3.0.5">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/baomidou/mybatis-plus-generator/3.0.5/mybatis-plus-generator-3.0.5.jar" />
+  </library>
+  <library name="Maven: com.baomidou:mybatis-plus-boot-starter:3.0.5">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/baomidou/mybatis-plus-boot-starter/3.0.5/mybatis-plus-boot-starter-3.0.5.jar" />
+  </library>
+  <library name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.14">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar" />
+  </library>
+  <library name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:9.0.21">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.21/tomcat-embed-websocket-9.0.21.jar" />
+  </library>
+  <library name="Maven: commons-collections:commons-collections:3.2.2">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-web:5.1.8.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/spring-web/5.1.8.RELEASE/spring-web-5.1.8.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.aspectj:aspectjweaver:1.9.4">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/aspectj/aspectjweaver/1.9.4/aspectjweaver-1.9.4.jar" />
+  </library>
+  <library name="Maven: com.baomidou:mybatis-plus-core:3.0.5">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/baomidou/mybatis-plus-core/3.0.5/mybatis-plus-core-3.0.5.jar" />
+  </library>
+  <library name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.9">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.9/jackson-datatype-jdk8-2.9.9.jar" />
+  </library>
+  <library name="Maven: org.apache.commons:commons-lang3:3.8">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/apache/commons/commons-lang3/3.8/commons-lang3-3.8.jar" />
+  </library>
+  <library name="Maven: org.mybatis:mybatis-spring:1.3.2">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/mybatis/mybatis-spring/1.3.2/mybatis-spring-1.3.2.jar" />
+  </library>
+  <library name="Maven: com.fasterxml:classmate:1.4.0">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/fasterxml/classmate/1.4.0/classmate-1.4.0.jar" />
+  </library>
+  <library name="Maven: org.checkerframework:checker-qual:2.5.2">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/checkerframework/checker-qual/2.5.2/checker-qual-2.5.2.jar" />
+  </library>
+  <library name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/jboss/logging/jboss-logging/3.3.2.Final/jboss-logging-3.3.2.Final.jar" />
+  </library>
+  <library name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.9">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9.jar" />
+  </library>
+  <library name="Maven: io.jsonwebtoken:jjwt:0.9.0">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/io/jsonwebtoken/jjwt/0.9.0/jjwt-0.9.0.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-tx:5.1.8.RELEASE">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/springframework/spring-tx/5.1.8.RELEASE/spring-tx-5.1.8.RELEASE.jar" />
+  </library>
+  <library name="Maven: com.alibaba:druid:1.1.9">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/alibaba/druid/1.1.9/druid-1.1.9.jar" />
+  </library>
+  <library name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar" />
+  </library>
+  <library name="Maven: org.mybatis:mybatis:3.4.6">
+    <archive path="D:/Program Files (x86)/apache-maven-3.5.3/MyMaven/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar" />
+  </library>
+</eclipse-userlibraries>
+

@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin: 0;
+	padding: 0;
+	background: url(../image/StuSign/background.jpg) no-repeat;
+	background-size:100%;
+}
+.graph{
+	font-family: 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+	color: #fff;
+	font-size: 40px;
+	font-weight: 700;
+	position: absolute;
+	top: 0.7%;
+	left: 160px;
+	
+}
+.returnMain{
+	position: absolute;
+	bottom: 5%;
+	right: 4%;
+		
+}
+.returnMain a{
+	text-decoration: none;
+	color: #fff;
+	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px;
+	transition: 0.8s;
+	display: block;
+}
+.returnMain a:hover{
+	background: rgba(0,0,0,0.3);
+}
+.signup-from{
+	width: 300px;
+	margin-top: 20px;
+	border:1px solid #BFBFBF;
+	box-shadow: 0px 0px  10px 5px #aaa;
+	padding: 20px;
+	text-align: center;
+/*
+	background: url(./image1/bg.jpg);
+	background-size:200% 200%;
+*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	overflow: hidden;
+}
+.signup-from h1{
+	margin-top: 100px;
+	font-family:Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+	color:#fff;
+	font-size: 40px;
+}
+.signup-from input{
+	
+	display: block;
+	width: 100%;
+	padding: 0 16px;
+	height: 44px;
+	text-align: center;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+}
+.txtb{
+	margin: 20px 0;
+	width: 50%;
+	background: rgba(255,255,255,.5);
+	border-radius: 10px;
+}
+.signup-btn{
+	margin-top: 60px;
+	margin-bottom: 20px;
+	background: #1d8ce0;
+	color: #fff;
+	border-radius: 44px;
+	cursor: pointer;
+	transition: 0.8s;
+}
+.signup-btn:hover{
+	transform: scale(0.96);
+}
+

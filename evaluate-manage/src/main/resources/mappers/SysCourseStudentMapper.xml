@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eddy.evaluate.dao.SysCourseStudentMapper">
+
+
+    <select id="selectMyCourseList" resultType="map">
+        select
+        sc.course_no as  courseNo ,
+        sc.course_name as courseName
+        from sys_course_student as scs
+        join sys_course as sc
+        on sc.course_no = scs.course_no
+        where s_id = #{userId}
+    </select>
+
+
+    <select id="selectStudyForStudent" resultType="map">
+        select
+        sct.t_id as tId,
+        sct.id as sId,
+        sct.course_no as courseNo,
+        sc.course_name as courseName,
+        su.username
+        from sys_course_teacher as sct
+        join sys_course as sc
+        on sc.course_no = sct.course_no
+        join sys_user as su
+        on su.no_number = sct.t_id
+    </select>
+
+
+    <select id="selectMyStudy" resultType="map">
+        select
+        scs.t_id as tId,
+        scs.course_no as courseNo,
+        sc.course_name as courseName,
+        su.username
+        from sys_course_student as scs
+        join sys_course as sc
+        on sc.course_no = scs.course_no
+        join sys_user as su
+        on su.no_number = scs.t_id
+        where scs.s_id = #{uid}
+    </select>
+
+</mapper>

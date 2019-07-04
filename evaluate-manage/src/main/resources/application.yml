@@ -1,0 +1,64 @@
+mybatis-plus:
+  mapper-locations: classpath:/mappers/*.xml
+  typeAliasesPackage: com.eddy.evaluate.entity
+  global-config:
+    id-type: 0
+    field-strategy: 2
+    db-column-underline: true
+    refresh-mapper: false
+    key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    jdbc-type-for-null: 'null'
+
+
+
+spring:
+  datasource:
+    username: ${database.user}
+    password: ${database.pwd}
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${database.ip}:3306/${database.schema}?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    filters: stat,wall
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    cachePrepStmts: true
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 200MB
+  profiles:
+    active: data
+    
+
+logging:
+  level:
+    com.eddy.evaluate: debug
+
+
+server:
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 1000
+        min-spare-threads: 30
+    port: 8111
+
+#JWT Token验证
+jwt:
+  secret: f4e2e52034348f86b67cde581c0f9eb5 #加密私钥
+  expire: 18000   #单位秒
+  head: Authorization

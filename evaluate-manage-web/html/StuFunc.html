@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>学生</title>
+    <link rel="stylesheet" href="../css/styleStuFunc.css" />
+    <!-- Element Ui Css -->
+    <link rel="stylesheet" href="../css/element/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <div class="badge">学生评教系统</div>
+        </div>
+        <div class="header">
+            <h1>学生教学反馈系统</h1>
+        </div>
+        <div class="row">
+            <div class="side">
+                <div>
+                    <span>我的课程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                </div>
+                <br />
+                <div class="scroll">
+                    <a href="javaScript:;" style="height:60px;" v-for="(item,index) in dataList" :key="index"
+                        v-on:click="onClickItemHandler(item)">
+                        {{item.courseName}}
+                    </a>
+                </div>
+            </div>
+            <div class="main">
+                <div v-if="currentData!=null">
+                    <h2>课程:{{currentData.courseName}}</h2>
+                    <h3>授课老师:{{currentData.username}}</h3>
+                    <div>
+                        <span>教师态度：</span>
+                        <el-radio-group v-model="grade.levelTd">
+                            <el-radio :label="1">极优</el-radio>
+                            <el-radio :label="2">优秀</el-radio>
+                            <el-radio :label="3">良好</el-radio>
+                            <el-radio :label="4">中等</el-radio>
+                            <el-radio :label="5">差</el-radio>
+                        </el-radio-group>
+                    </div>
+
+                    <div>
+                        <span>教师成果：</span>
+                        <el-radio-group v-model="grade.levelCg">
+                            <el-radio :label="1">极优</el-radio>
+                            <el-radio :label="2">优秀</el-radio>
+                            <el-radio :label="3">良好</el-radio>
+                            <el-radio :label="4">中等</el-radio>
+                            <el-radio :label="5">差</el-radio>
+                        </el-radio-group>
+                    </div>
+
+
+                    <div>
+                        <span>教师方式：</span>
+                        <el-radio-group v-model="grade.levelFs">
+                            <el-radio :label="1">极优</el-radio>
+                            <el-radio :label="2">优秀</el-radio>
+                            <el-radio :label="3">良好</el-radio>
+                            <el-radio :label="4">中等</el-radio>
+                            <el-radio :label="5">差</el-radio>
+                        </el-radio-group>
+                    </div>
+
+
+                    <div>
+                        <span>师德师表：</span>
+                        <el-radio-group v-model="grade.levelSb">
+                            <el-radio :label="1">极优</el-radio>
+                            <el-radio :label="2">优秀</el-radio>
+                            <el-radio :label="3">良好</el-radio>
+                            <el-radio :label="4">中等</el-radio>
+                            <el-radio :label="5">差</el-radio>
+                        </el-radio-group>
+                    </div>
+
+                    <div>反馈建议：</div>
+                    <el-input style="width: 45%;" type="textarea" :autosize="{ minRows: 2, maxRows: 4}"
+                        placeholder="请输入反馈建议" v-model="grade.commit"></el-input>
+                    <div>
+                        <el-button type="primary" round @click=onConfrim>提交</el-button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer"><a href="javaScript:;" onclick="logOut()">退出登录</a></div>
+    </div>
+
+
+    <!-- 引入基本需要的JS库 -->
+    <!-- Vue -->
+    <script src="../js/vue.js"></script>
+    <!-- Element UI JS -->
+    <script src="../js/ele.js"></script>
+    <!-- Axios网络请求 -->
+    <script src="../js/axios.min.js"></script>
+    <!-- Jquery -->
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <!-- 工具方法 -->
+    <script src="../js/util.js"></script>
+    <!-- Http请求封装方法 -->
+    <script src="../js/httpRequest.js"></script>
+
+
+    <!-- 脚本代码区域 -->
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                currentData: {},//当前点击的
+                dataList: [], //我的课程
+                grade: {
+                    levelTd: 1,//教师态度 (1.极优，2.优秀，3.良好，4.中等，5.差)
+                    levelCg: 1,//教学成果 (1.极优，2.优秀，3.良好，4.中等，5.差)
+                    levelFs: 1,//教学方式 (1.极优，2.优秀，3.良好，4.中等，5.差)
+                    levelSb: 1,//师德师表 (1.极优，2.优秀，3.良好，4.中等，5.差)
+                    commit: null//评语
+                }
+            },
+            created() {
+                this.request();
+            },
+            methods: {
+                /**
+                 * 提交评价
+                 */
+                onConfrim() {
+                    this.$confirm('此操作将进行评价操作, 是否继续?', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        http.postRequestForBody("student/confirm", {
+                            courseNo: this.currentData.courseNo,
+                            tId: this.currentData.tId,
+                            levelTd: this.grade.levelTd,
+                            levelCg: this.grade.levelCg,
+                            levelFs: this.grade.levelFs,
+                            levelSb: this.grade.levelSb,
+                            commit: this.grade.commit
+                        }, success => {
+                            this.$message.success("评价成功");
+                            this.request();
+                        })
+                    })
+                },
+                /**
+                 * 请求获取我的课程列表
+                 */
+                request() {
+                    http.getRequest("student/getMyStudy", null, success => {
+                        this.dataList = success;
+                        console.log(success);
+                        if (success.length != 0) {
+                            this.currentData = success[0];
+                            if (success[0].grade != null) {
+                                this.grade.commit = success[0].grade.commit;
+                                this.grade.levelTd = success[0].grade.levelTd;
+                                this.grade.levelCg = success[0].grade.levelCg;
+                                this.grade.levelFs = success[0].grade.levelFs;
+                                this.grade.levelSb = success[0].grade.levelSb;
+                            } else {
+                                this.grade.commit = null;
+                                this.grade.levelTd = 1;
+                                this.grade.levelCg = 1;
+                                this.grade.levelFs = 1;
+                                this.grade.levelSb = 1;
+                            }
+                        }
+                    })
+                },
+                onClickItemHandler(item) {
+                    this.currentData = item;
+                    if (item.grade != null) {
+                        this.grade.commit = item.grade.commit;
+                        this.grade.levelTd = item.grade.levelTd;
+                        this.grade.levelCg = item.grade.levelCg;
+                        this.grade.levelFs = item.grade.levelFs;
+                        this.grade.levelSb = item.grade.levelSb;
+                    } else {
+                        this.grade.commit = null;
+                        this.grade.levelTd = 1;
+                        this.grade.levelCg = 1;
+                        this.grade.levelFs = 1;
+                        this.grade.levelSb = 1;
+                    }
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>

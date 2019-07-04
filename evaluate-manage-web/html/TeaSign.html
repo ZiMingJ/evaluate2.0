@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>教师注册界面</title>
+	<link rel="stylesheet" href="../css/styleTeaSign.css">
+	<!-- Element Ui Css -->
+	<link rel="stylesheet" href="../css/element/index.css">
+</head>
+
+<body>
+	<div id="app">
+		<div>
+			<div class="graph">学生评教系统</div>
+		</div>
+		<div class="returnMain"><a href="./MainInterface.html">返回主界面</a></div>
+		<div class="signup-from">
+			<div>
+				<h1>教师注册界面</h1>
+				<input type="text" placeholder="请输入姓名" class="txtb" v-model="username">
+				<input type="text" placeholder="请输入账号" class="txtb" v-model="uid">
+				<input type="password" placeholder="请输入密码" class="txtb" v-model="pwd">
+				<input type="number" placeholder="请输入手机" class="txtb" v-model="phone">
+				<input type="text" placeholder="请输入系别" class="txtb" v-model="dept">
+				<input type="button" value="注册" class="signup-btn" v-on:click="onSubmit">
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+	<!-- 引入基本需要的JS库 -->
+	<!-- Vue -->
+	<script src="../js/vue.js"></script>
+	<!-- Element UI JS -->
+	<script src="../js/ele.js"></script>
+	<!-- Axios网络请求 -->
+	<script src="../js/axios.min.js"></script>
+	<!-- Jquery -->
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<!-- 工具方法 -->
+	<script src="../js/util.js"></script>
+	<!-- Http请求封装方法 -->
+	<script src="../js/httpRequest.js"></script>
+
+
+	<!-- 脚本代码区域 -->
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				username: "",
+				uid: "",
+				phone: "",
+				dept: "",
+				pwd: "",
+			},
+			created() {
+
+			},
+			methods: {
+				onSubmit() {
+					register(this.username, this.uid, this.pwd, this.dept, 1, this.phone, null, success => {
+						//注册成功的返回
+						this.$alert('注册成功', '提示', {
+							confirmButtonText: '确定',
+							callback: action => {
+								window.location.href = "./TeaLogIn.html"
+							}
+						});
+					});
+				}
+			},
+		})
+	</script>
+</body>
+
+</html>

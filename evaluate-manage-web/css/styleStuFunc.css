@@ -1,0 +1,157 @@
+@charset "utf-8";
+* {
+    box-sizing: border-box;
+}
+ 
+/* body 样式 */
+body {
+    font-family: Arial;
+    margin: 0;
+    padding:0;
+    background: url(../image/StuFunc/background.jpg) no-repeat;
+    background-size:100%;
+}
+ 
+/* 标题 */
+.header {
+    font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+ 
+/* 标题字体加大 */
+.header h1 {
+    font-size: 40px;
+}
+
+.badge{
+	font-family: 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+	color: #fff;
+	font-size: 40px;
+	font-weight: 700;
+	position: absolute;
+	top: 0.7%;
+	left: 160px;
+}
+ 
+ 
+/* 列容器 */
+.row {  
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    border:1px solid rgba(191, 191, 191, 0);
+    box-shadow: 0px 0px  10px 5px #aaa;
+    padding:10px;
+
+
+}
+.signup-btn{
+	background: #1d8ce0;
+	color: #fff;
+    border-radius: 44px;
+	cursor: pointer;
+    transition: 0.8s;
+    font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+    font-size: 20px;
+}
+/* 创建两个列 */
+/* 边栏 */
+.side {
+    font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+    -ms-flex: 30%; /* IE10 */
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border:1px solid rgba(191, 191, 191, 0);
+    box-shadow: 0px 0px  10px 5px #aaa;
+}
+.side c{
+    font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+    font-size: 30px;
+}
+.side a{
+	text-decoration: none;
+    color: #fff;
+    background-color: #2196da;
+	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+	font-size: 20px;
+	padding: 20px;
+	transition: 0.8s;
+    display: block;
+    text-align: center;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.side a:hover{
+    background: rgba(0,0,0,0.3);
+}
+
+.scroll{
+    overflow-y:scroll;
+    height: 300px;
+}
+ 
+/* 主要的内容区域 */
+.main {   
+    -ms-flex: 70%; /* IE10 */
+    flex: 70%;
+    background-color: white;
+    border:1px solid rgba(191, 191, 191, 0);
+    box-shadow: 0px 0px  10px 5px #aaa;
+    text-align: center;
+    padding: 10px;
+}
+
+.main div{
+    margin-bottom: 6px;
+}
+
+/* 测试图片 */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+ 
+/* 底部 */
+.footer {
+    position: absolute;;
+    bottom: 5%;	
+    right: 50%;
+    text-align: center;
+}
+
+.footer a{
+	text-decoration: none;
+	color: #fff;
+	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+	font-size: 20px;
+	transition: 0.8s;
+	display: block;
+}
+
+.footer a:hover{
+	background: rgba(0,0,0,0.3);
+}
+ 
+/* 响应式布局 - 在屏幕设备宽度尺寸小于 700px 时, 让两栏上下堆叠显示 */
+@media screen and (max-width: 700px) {
+    .row {   
+        flex-direction: column;
+    }
+}
+ 
+/* 响应式布局 - 在屏幕设备宽度尺寸小于 400px 时, 让导航栏目上下堆叠显示 */
+@media screen and (max-width: 400px) {
+    .navbar a {
+        float: none;
+        width: 100%;
+    }
+}
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>教师</title>
+    <link rel="stylesheet" href="../css/styleTeaFunc.css" type="text/css" />
+    <!-- Element Ui Css -->
+    <link rel="stylesheet" href="../css/element/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/styleMyClass.css" />
+</head>
+
+<body>
+    <div>
+        <div class="badge">学生评教系统</div>
+    </div>
+    <div class="header">
+        <h1>学生教学反馈系统教师端</h1>
+    </div>
+    <div class="row" id="app">
+        <div class="side">
+            <div>
+                <span>我的课程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+            <br />
+            <div class="scroll">
+                <a href="javaScript:;" v-for="(item,index) in dataList" :key="index" @click="onHandlerClick(item)"
+                    style="height:60px;">
+                    {{item.course_name}}
+                </a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="container" v-if="currentData!=null">
+                <div class="content_left">
+                    <h2>{{currentData.course_name}}</h2>
+                    <ul>
+                        <p>教学态度</p>
+                        <li>极优 : {{currentData.levelTd.le1}}%</li>
+                        <li>优秀 : {{currentData.levelTd.le2}}%</li>
+                        <li>良好 : {{currentData.levelTd.le3}}%</li>
+                        <li>中等 : {{currentData.levelTd.le4}}%</li>
+                        <li>差 : {{currentData.levelTd.le5}}%</li>
+                    </ul>
+                    <ul>
+                        <p>教学成果</p>
+                        <li>极优 : {{currentData.levelCg.le1}}%</li>
+                        <li>优秀 : {{currentData.levelCg.le2}}%</li>
+                        <li>良好 : {{currentData.levelCg.le3}}%</li>
+                        <li>中等 : {{currentData.levelCg.le4}}%</li>
+                        <li>差 : {{currentData.levelCg.le5}}%</li>
+                    </ul>
+                    <ul>
+                        <p>教学方式</p>
+                        <li>极优 : {{currentData.levelFs.le1}}%</li>
+                        <li>优秀 : {{currentData.levelFs.le2}}%</li>
+                        <li>良好 : {{currentData.levelFs.le3}}%</li>
+                        <li>中等 : {{currentData.levelFs.le4}}%</li>
+                        <li>差 : {{currentData.levelFs.le5}}%</li>
+                    </ul>
+                    <ul>
+                        <p>师德师表</p>
+                        <li>极优 : {{currentData.levelSb.le1}}%</li>
+                        <li>优秀 : {{currentData.levelSb.le2}}%</li>
+                        <li>良好 : {{currentData.levelSb.le3}}%</li>
+                        <li>中等 : {{currentData.levelSb.le4}}%</li>
+                        <li>差 : {{currentData.levelSb.le5}}%</li>
+                    </ul>
+                </div>
+
+
+                <div class="content_right">
+                    <div class="content_comment" v-for="(item,index) in currentData.commitList" :key="index">
+                        <h6>
+                            评论{{index+1}}
+                        </h6>
+                        <p>{{item}}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer"><a href="javaScript:;" onclick="logOut()">退出登录</a></div>
+
+
+
+
+    <!-- 引入基本需要的JS库 -->
+    <!-- Vue -->
+    <script src="../js/vue.js"></script>
+    <!-- Element UI JS -->
+    <script src="../js/ele.js"></script>
+    <!-- Axios网络请求 -->
+    <script src="../js/axios.min.js"></script>
+    <!-- Jquery -->
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <!-- 工具方法 -->
+    <script src="../js/util.js"></script>
+    <!-- Http请求封装方法 -->
+    <script src="../js/httpRequest.js"></script>
+
+
+    <!-- 脚本代码区域 -->
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                dataList: [],//数据集合
+                currentData: {},//当前选择的
+            },
+            created() {
+                this.request()
+            },
+            methods: {
+                request() {
+                    http.getRequest("teacher/getTeacherStudy", null, success => {
+                        this.dataList = success;
+                        if (success.length != 0) {
+                            this.currentData = success[0];
+                        }
+                    })
+                },
+                onHandlerClick(item) {
+                    this.currentData = item;
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
